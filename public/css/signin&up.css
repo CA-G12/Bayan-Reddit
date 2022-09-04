@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+:root {
+    --gray: #8E9AAF;
+    --lavender: #fcd8c9;
+    --pale: #fc7a4a;
+    --white: #f6f6f6;
+    --pink: darken(#EAC7CC, 20%);
+}
+body {
+  background: var(--gray);
+}
+/* div box styling */
+.logo a img{
+  width: 3rem;
+  height: 3rem;
+  padding: 0rem 1rem;
+}
+.container {
+  margin: auto;
+  width: 650px;
+  height: 550px;
+  position: relative;
+}
+.welcome {
+  background: var(--white);
+  width: 650px;
+  height: 415px;
+  position: absolute;
+  top: 25%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.1);
+}
+.box {
+  position: absolute;
+  top: -10%;
+  left: 5%;
+  background: var(--pale);
+  width: 320px;
+  height: 500px;
+  border-radius: 5px;
+  box-shadow: 2px 0 10px rgba(0,0,0,.1);
+  transition: all .5s ease-in-out;
+  z-index: 2;
+  /* transform: translateX(80%) */
+}
+.nodisplay {
+  display:none;
+  transition: all .5s ease;
+}
+.leftbox, .rightbox {
+  position: absolute;
+  width: 50%;
+  transition: 1s all ease;
+}
+.leftbox {
+  left: -2%;
+}
+.rightbox {
+  right: -2%;
+}
+/* font & button styling */
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  margin-top: 95px;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 2em;
+  letter-spacing: 8px;
+} .signup-form h1{
+  margin-top: 35px;
+}
+.title {
+  font-family: 'Lora', serif;;
+  color: var(--gray);
+  font-size: 1.8em;
+  line-height: 1.1em;
+  letter-spacing: 3px;
+  text-align: center;
+  font-weight: 300;
+  margin-top: 20%;
+}
+.desc {
+  margin-top: -8px;
+}
+.account {
+  margin-top: 45%;
+  font-size: 10px;
+}
+.leftbox p , .rightbox p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7em;
+  letter-spacing: 2px;
+  color: var(--gray);
+  text-align: center;
+}
+span {
+  color:var(--pale);
+}
+.reddit {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 46%;
+  left: 29%;
+  opacity: .7;
+}
+button {
+  padding: 12px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  border-radius: 10px;
+  margin: auto;
+  outline: none;
+  display: block;
+}
+button:hover{
+    background:var(--pale);
+    color: var(--white);
+    transition: background-color 1s ease-out;
+}
+.button {
+  margin-top: 3%;
+  background: var(--white);
+  color: var(--pink);
+  border: solid 1px var(--pale);
+}
+/* form styling */
+.form-controller{
+position: relative;
+}
+.form-controller.success input{
+  border-color: var(--gray);
+}
+.form-controller.error input{
+  border-color: var(--gray);
+}
+  .form-controller ion-icon{
+      position: absolute;
+      top: 21px;
+      right: 13px;
+      visibility: hidden;
+  }
+  .form-controller.success .true{
+      visibility: visible;
+      color:white ;
+  }
+  .form-controller.error .false{
+      visibility: visible;
+      color: black;
+  }
+  .form-controller p{
+      visibility: hidden;
+      font-family: 'Open Sans', sans-serif;
+      font-size: .7em;
+      text-align: center;
+      margin-top: 0px;
+  }
+  .form-controller.error p{
+      visibility: visible;
+      color: black;
+  }
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 7px;
+}
+.more-padding{
+  padding-top: 35px;
+}.signup-form{
+  padding-top: 0px;
+}
+.more-padding input{
+    padding: 12px;
+}
+.more-padding .submit{
+    margin-top: 45px;
+}
+.signup-form .submit{
+  margin-top: 10px;
+}
+.submit {
+  margin-top: 25px;
+  padding: 12px;
+  border-color: var(--pink);
+}
+.submit:hover{
+    background: var(--gray);
+    border-color: darken(var(--gray), 5%);
+}
+input {
+  background: var(--pale);
+  width: 65%;
+  color: white;
+  padding: 9px;
+  margin: 7px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+  border: 2px solid transparent;
+  width: inherit;
+}
+input::placeholder{
+    color: #f6f6f6;
+    letter-spacing: 2px;
+    font-size: 1em;
+    font-weight: 100;
+    text-align: center;
+}
+input:focus{
+    color: var(--pink);
+    outline: none;
+    font-size: 1em;
+    transition: .8s all ease;
+}
+input:focus::placeholder{
+  opacity: 0;
+}
