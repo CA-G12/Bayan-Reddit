@@ -21,6 +21,7 @@ const signupForm = document.querySelector('.signup-form');
 const email = document.querySelector('.email');
 const password2 = document.querySelector('.password2');
 const signupError = document.querySelector('.signup-error');
+const signinError = document.querySelector('.signin-error');
 
 const setErrorFor = (input, msg) => {
   const formControl = input.parentElement;
@@ -86,13 +87,23 @@ const checkPassword2 = (password2Value, passwordValue) => {
 const checkInputs = () => {
   const loginUserName = document.querySelector('.login-form .user-name');
   const LoginPassword = document.querySelector('.login-form .password');
-  const nameValue = loginUserName.value.trim();
-  const passwordValue = LoginPassword.value.trim();
-  checkUserName(nameValue, loginUserName);
-  checkPassword(passwordValue, LoginPassword);
-  if (checkUserName(nameValue, loginUserName)
-  && checkPassword(passwordValue, LoginPassword)) {
-    window.location.href = '../index.html';
+  const username = loginUserName.value.trim();
+  const password = LoginPassword.value.trim();
+  checkUserName(username, loginUserName);
+  checkPassword(password, LoginPassword);
+  if (checkUserName(username, loginUserName)
+  && checkPassword(password, LoginPassword)) {
+    fetchUrl({
+      username, password,
+    }, 'post', '/login')
+      .then((data) => {
+        if (data.status === 400) {
+          // eslint-disable-next-line no-undef
+          createMessageError(signinError, data.message);
+        } else {
+          window.location.href = '../index.html';
+        }
+      });
   }
 };
 /// check signup client validation & then add user to data base & redirect to home page
