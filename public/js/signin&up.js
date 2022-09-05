@@ -20,6 +20,7 @@ const loginForm = document.querySelector('.login-form');
 const signupForm = document.querySelector('.signup-form');
 const email = document.querySelector('.email');
 const password2 = document.querySelector('.password2');
+const signupError = document.querySelector('.signup-error');
 
 const setErrorFor = (input, msg) => {
   const formControl = input.parentElement;
@@ -94,25 +95,38 @@ const checkInputs = () => {
     window.location.href = '../index.html';
   }
 };
+/// check signup client validation & then add user to data base & redirect to home page
 const checkUpInputs = () => {
   const signupUserName = document.querySelector('.signup-form .user-name');
   const signupPassword = document.querySelector('.signup-form .password');
-  const nameValue = signupUserName.value.trim();
-  const emailValue = email.value.trim();
-  const passwordValue = signupPassword.value.trim();
-  const password2Value = password2.value.trim();
+  const username = signupUserName.value.trim();
+  const Email = email.value.trim();
+  const password = signupPassword.value.trim();
+  const confirmPassword = password2.value.trim();
 
-  checkUserName(nameValue, signupUserName);
-  checkEmail(emailValue);
-  checkPassword(passwordValue, signupPassword);
-  checkPassword2(password2Value, passwordValue);
-  if (checkUserName(nameValue, signupUserName)
-  && checkPassword(passwordValue, signupPassword)
-  && checkEmail(emailValue)
-  && checkPassword2(password2Value, passwordValue)) {
-    window.location.href = '../index.html';
+  checkUserName(username, signupUserName);
+  checkEmail(Email);
+  checkPassword(password, signupPassword);
+  checkPassword2(confirmPassword, password);
+  if (checkUserName(username, signupUserName)
+  && checkPassword(password, signupPassword)
+  && checkEmail(Email)
+  && checkPassword2(confirmPassword, password)) {
+    // eslint-disable-next-line no-undef
+    fetchUrl({
+      username, Email, password, confirmPassword,
+    }, 'post', '/signup')
+      .then((data) => {
+        if (data.status === 409 || data.status === 400) {
+          // eslint-disable-next-line no-undef
+          createMessageError(signupError, data.message);
+        } else {
+          window.location.href = '../index.html';
+        }
+      });
   }
 };
+
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
   checkInputs();

@@ -94,6 +94,14 @@ h1 {
   color: var(--gray);
   text-align: center;
 }
+.signup-error , .signin-error{
+  font-family: 'Open Sans', sans-serif;
+  font-size: .7em;
+  letter-spacing: 2px;
+  color: black;
+  text-align: center;
+  margin: 0px;
+}
 span {
   color:var(--pale);
 }
