@@ -28,13 +28,6 @@ switch (NODE_ENV) {
 const connection = new Pool({
   connectionString,
   ssl,
-  
 });
 
 module.exports = connection;
-('commet 1 content',1,2),
-('commet 2 content',2,3),
-('commet 3 content for post 1',1,1),
-('commet 4 content',2,1),
-('commet 5 content for post 2',1,2),
-('commet 6 content',2,3);
