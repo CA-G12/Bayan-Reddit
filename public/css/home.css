@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+:root {
+    --gray: #8E9AAF;
+    --lavender: #fcd8c9;
+    --pale: #fc7a4a;
+    --white: #f6f6f6;
+    --pink: darken(#EAC7CC, 20%);
+}
+ body {
+    box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--gray);
+}
+.top-nav{
+    width: 100%;
+    height: 70px;
+    background: #6c778b;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+    display: flex;
+    justify-content: space-between;
+}
+nav.top-nav .left-top-nav {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: row;
+}
+nav.top-nav .left-top-nav a{
+    font-size: 30px;
+      text-decoration: none;
+      color: white;
+      padding: 14px;
+      transition: .15s all ease-in-out;
+} nav.top-nav .left-top-nav a img{
+    width: 40px;
+    height: 40px;
+}nav.top-nav .left-top-nav b{
+    color: var(--pale);
+}
+nav.top-nav .left-top-nav a :hover{
+    transform: scale(1.10);
+}nav.top-nav ul{
+    display: flex;
+    flex-direction: row;
+}
+nav.top-nav ul li {
+    list-style-type: none;
+      border-left: 1px solid rgba(255, 255, 255, .25);
+}
+nav.top-nav ul li a{
+    font-size: 28px;
+        padding: 18px 24px;
+        text-decoration: none;
+        color: white;
+        font-weight: 300;
+        transition: .15s all ease-in-out;
+}
+nav.top-nav ul li a:hover{
+    background: rgba(255, 255, 255, .25);
+}
+.container-wrapper{
+    width: 100%;
+  display: flex;
+  justify-content: center;
+}.container-wrapper .container{
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 800px;
+    width: 66.6666%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}.container-wrapper .container .post{
+    display: flex;
+       width: 100%;
+       margin-top: 6px;
+       margin-bottom: 6px;
+       background: white;
+       box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}.container-wrapper .container .post .vote-container{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px;
+        font-size: 18px;
+        background: white;
+        color: #424242;
+        width: 10%;
+}
+.post .vote-container ion-icon {
+    font-size: 2.5rem;
+}
+.post .vote-container ion-icon:hover ,.up{
+    color: var(--gray);
+}
+.post .vote-container ion-icon:hover ,.down{
+    color: var(--pale);
+}
+.container-wrapper .container .post .post-content-container{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.container-wrapper .container .post .post-content-container h2{
+    font-weight: 500;
+    color: #424242;
+    margin: 0;
+    margin-top: 1rem;
+    margin-bottom: 4px;
+} .container-wrapper .container .post .post-content-container .content{
+    padding: 1rem;
+}
+.container-wrapper .container .post .post-content-container p{
+    margin: 0;
+    font-weight: 300;
+    font-size: 14px;
+    padding-bottom: 1rem;
+}
+.container-wrapper .container .post .post-content-container p a{
+    color: var(--pale);
+    font-weight: bold;
+    text-decoration: none;
+}
+.container-wrapper .container .post .message-wrapper{
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #424242;
+    border-left: 1px solid rgba(0,0,0,.12);
+    transition: .15s all ease-in-out;
+}
+.container-wrapper .container .post .message-wrapper:hover{
+    background: var(--pale);
+    color: var(--white);
+    cursor: pointer;
+}
+.container-wrapper .container .post .message-wrapper ion-icon {
+    font-size: 32px;
+}
+.container-wrapper .container .post .message-wrapper .comment-count {
+    font-size: 12px;
+}
