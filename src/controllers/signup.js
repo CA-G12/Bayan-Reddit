@@ -24,7 +24,7 @@ const signup = (req, res, next) => {
     .then((data) => {
       const { id } = data.rows[0];
       const { user_name } = data.rows[0];
-      return jwtAsync({ id, user_name });
+      return jwtAsync({ id, username: user_name });
     })
     .then((token) => res.status(201)
       .cookie('token', token, { httpOnly: true })

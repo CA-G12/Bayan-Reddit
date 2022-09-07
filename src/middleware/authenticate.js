@@ -2,7 +2,7 @@ require('env2').apply('.env');
 const { CustomError, verifyToken } = require('../utils');
 
 const authenticateToken = (req, res, next) => {
-  const { token } = req.cookie;
+  const { token } = req.cookies;
   if (!token) {
     throw CustomError('unauthorized', 400);
   } else {

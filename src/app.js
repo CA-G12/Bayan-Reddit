@@ -3,7 +3,7 @@ const compression = require('compression');
 const { join } = require('path');
 const cookieParser = require('cookie-parser');
 
-const { userRoute } = require('./routes');
+const { userRoute, postRoute } = require('./routes');
 const { notFound, serverError } = require('./controllers');
 
 const app = express();
@@ -15,6 +15,7 @@ app.use(cookieParser());
 app.use(express.static(join(__dirname, '..', 'public')));
 
 app.use(userRoute);
+app.use(postRoute);
 
 app.use(notFound);
 app.use(serverError);
