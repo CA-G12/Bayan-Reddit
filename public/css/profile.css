@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400|Lora');
+:root {
+    --gray: #8E9AAF;
+    --lavender: #fcd8c9;
+    --pale: #fc7a4a;
+    --white: #f6f6f6;
+    --pink: darken(#EAC7CC, 20%);
+}
+ body {
+    box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  background: var(--gray);
+}
+.content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user-img{
+    width:20rem;
+    height: 20rem;
+}
+.col{
+    color: #fc7a4a;
+}
+span{
+    font-size: 2rem;
+}
