@@ -44,3 +44,16 @@ addPostPopup.addEventListener('click', (e) => {
   addPostToDatabase();
   getAllPost();
 });
+addPost.addEventListener('click', () => {
+  popUpAddPost.style.visibility = 'visible';
+  updatePostPopup.style.display = 'none';
+});
+closeBtn.addEventListener('click', () => {
+  postTitle.value = '';
+  postContent.value = '';
+  postImg.value = '';
+  popUpAddPost.style.visibility = 'hidden';
+});
+// userName.addEventListener('click', () => {
+
+  

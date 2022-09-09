@@ -50,6 +50,7 @@ INSERT INTO comments (content, user_id, post_id) VALUES
 ('commet 6 content',2,3);
 INSERT INTO votes (vote_value, user_id, post_id) VALUES
 (1,1,2),
+(1,1,1),
 (1,2,3),
 (-1,2,3);
 

@@ -92,7 +92,7 @@ color: aliceblue;
     font-family: inherit;
     /* color: aliceblue; */
 }
-.add-post-pop ,.update-post-pop{
+.add-post-pop ,.update-post-pop , .add-comment-pop{
     /* padding: 1rem 3rem; */
     background-color: #fc7a4a;
     color: aliceblue;
@@ -104,6 +104,12 @@ color: aliceblue;
     font-size: 1rem;
     align-self: center;
 cursor: pointer;
+}
+.comment-content{
+    height: 6rem;
+}
+.add-comment-pop{
+    margin-top: 4rem;
 }
 .top-nav{
     width: 100%;
@@ -163,14 +169,17 @@ nav.top-nav ul li a:hover{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}.container-wrapper .container .post{
+} h1{
+    color: var(--white);
+}
+.container-wrapper .container .post , .comment{
     display: flex;
        width: 100%;
        margin-top: 6px;
        margin-bottom: 6px;
        background: white;
        box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-}.container-wrapper .container .post .vote-container{
+}.container-wrapper .container .post .vote-container , .comments .comment .vote-container{
     display: flex;
         flex-direction: column;
         align-items: center;
@@ -189,7 +198,7 @@ nav.top-nav ul li a:hover{
 .post .vote-container ion-icon:hover ,.down{
     color: var(--pale);
 }
-.container-wrapper .container .post .post-content-container{
+.container-wrapper .container .post .post-content-container , .comments .comment .post-content-container {
     width: 80%;
     display: flex;
     justify-content: center;
@@ -201,19 +210,19 @@ nav.top-nav ul li a:hover{
     margin: 0;
     margin-top: 1rem;
     margin-bottom: 4px;
-} .container-wrapper .container .post .post-content-container .content{
+} .container-wrapper .container .post .post-content-container .content , .comments .comment .post-content-container .content{
     padding: 1rem;
 }.container-wrapper .container .post .post-content-container img{
     max-height: 600px;
     /* padding: 1rem; */
 }
-.container-wrapper .container .post .post-content-container p{
+.container-wrapper .container .post .post-content-container p , .comments .comment .post-content-container p{
     margin: 0;
     font-weight: 300;
     font-size: 14px;
     padding-bottom: 1rem;
 }
-.container-wrapper .container .post .post-content-container p a{
+.container-wrapper .container .post .post-content-container p a , .comments .comment .post-content-container p a{
     color: var(--pale);
     font-weight: bold;
     text-decoration: none;

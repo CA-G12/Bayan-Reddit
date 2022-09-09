@@ -1,9 +1,11 @@
 const { notFound, serverError } = require('./error');
 const signup = require('./signup');
 const login = require('./login');
-const { getAllPosts, createPost } = require('./posts');
+const { getAllPosts, createPost, getPostById, getCommentsById } = require('./posts');
 const auth = require('./auth');
+const createComment = require('./comments.js')
+const profile = require('./profile')
 
 module.exports = {
-  notFound, serverError, signup, login, getAllPosts, auth, createPost,
+  notFound, serverError, signup, login, getAllPosts, auth, createPost, getPostById, getCommentsById, createComment, profile
 };
