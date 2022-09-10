@@ -1,22 +1,20 @@
 const connection = require('../src/database/config/connection');
-const  build = require('../src/database/config/build');
-const { allPosts, addPost, profilePosts, commentsByPostId, addComment } = require('../src/database/queries')
+const build = require('../src/database/config/build');
+const {
+  allPosts, addPost, profilePosts, commentsByPostId, addComment,
+} = require('../src/database/queries');
 // const { getAllBooks , postBook } = require('../database/quires/books')
 
-test("jest is working", () => {
+test('jest is working', () => {
   expect(1).toBe(1);
 });
 
-beforeEach(() => {
-    return build();
-});
-test('allPosts', () => {
-  return allPosts()
-    .then((data) => {
-      expect(data.rows.length).toBe(3);
-      expect(data.rows[0].id).toBe(1);
-    });
-});
+beforeEach(() => build());
+test('allPosts', () => allPosts()
+  .then((data) => {
+    expect(data.rows.length).toBe(3);
+    expect(data.rows[0].id).toBe(1);
+  }));
 // test('addPost', () => {
 //   const title = 'post4';
 //   const content = 'post4 content';
@@ -27,26 +25,20 @@ test('allPosts', () => {
 //       expect(data.rows[0].id).toBe(4);
 //     });
 // });
-test('profile posts', () => {
-  return profilePosts(1)
-    .then((data) => {
-      expect(data.rows.length).toBe(2);
-      expect(data.rows[0].id).toBe(1);
-    });
-});
-test('commentsByPostId', () => {
-  return commentsByPostId(1)
-    .then((data) => {
-      expect(data.rows.length).toBe(2);
-      expect(data.rows[0].id).toBe(3);
-    });
-});
+test('profile posts', () => profilePosts(1)
+  .then((data) => {
+    expect(data.rows.length).toBe(2);
+    expect(data.rows[0].id).toBe(1);
+  }));
+test('commentsByPostId', () => commentsByPostId(1)
+  .then((data) => {
+    expect(data.rows.length).toBe(2);
+    expect(data.rows[0].id).toBe(3);
+  }));
 // test('addComment', () => {
 //   return addComment('content',1)
 //     .then((data) => {
 //       expect(data.rows.length).toBe(1);
 //     });
 // });
-afterAll(() => {
-  return connection.end();
-});
+afterAll(() => connection.end());
