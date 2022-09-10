@@ -10,6 +10,9 @@ fetch('/auth')
   .then((res) => res.json()).then((res) => {
     if (res.authorized === 'true') {
       userBtn.textContent = 'Logout';
+      userBtn.addEventListener('click', () => {
+        fetch('/logout').then(console.log());
+      });
       userName.style.display = 'visible';
       userName.textContent = res.userName;
       addPost.style.display = 'visible';
@@ -55,5 +58,3 @@ closeBtn.addEventListener('click', () => {
   popUpAddPost.style.visibility = 'hidden';
 });
 // userName.addEventListener('click', () => {
-
-  
