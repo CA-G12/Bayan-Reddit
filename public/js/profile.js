@@ -6,6 +6,9 @@ fetch('/auth')
   .then((res) => res.json()).then((res) => {
     if (res.authorized === 'true') {
       userBtn.textContent = 'Logout';
+      userBtn.addEventListener('click', () => {
+        fetch('/logout').then(console.log());
+      });
       userName.style.display = 'visible';
       userName.textContent = res.userName;
       userNameValue.textContent = res.userName;

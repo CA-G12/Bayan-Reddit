@@ -16,6 +16,34 @@ const renderPost = (data) => {
     const upIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-up-outline' });
     const voteCount = voteContainer.createAppendElement('span', { className: 'vote-amount', textContent: element.votes_counts });
     const downIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-down-outline' });
+    upIcon.addEventListener('click', () => {
+      if (!upIcon.classList.contains('active')) {
+        fetchUrl({
+          voteValue: 1,
+          postId: element.id,
+        }, 'post', '/vote')
+          .then(() => {
+            console.log(voteCount.textContent);
+            voteCount.textContent = +voteCount.textContent + 1;
+            upIcon.classList.add('active');
+            downIcon.classList.remove('active');
+          });
+      }
+    });
+    downIcon.addEventListener('click',() => {
+      if (!downIcon.classList.contains('active')) {
+        fetchUrl({
+          voteValue: -1,
+          postId: element.id,
+        }, 'post', '/vote')
+          .then(() => {
+            console.log(voteCount.textContent);
+            voteCount.textContent = +voteCount.textContent - 1;
+            downIcon.classList.add('active');
+            upIcon.classList.remove('active');
+          });
+      }
+    });
     const contentContainer = post.createAppendElement('div', { className: 'post-content-container' });
     const postTitle = contentContainer.createAppendElement('h2', { className: 'title', textContent: element.title });
     const postContent = contentContainer.createAppendElement('p', { className: 'content', textContent: element.content });
@@ -42,6 +70,9 @@ fetch('/auth')
   .then((res) => res.json()).then((res) => {
     if (res.authorized === 'true') {
       userBtn.textContent = 'Logout';
+      userBtn.addEventListener('click', () => {
+        fetch('/logout').then(console.log());
+      });
       userName.style.display = 'visible';
       userName.textContent = res.userName;
       addComment.style.display = 'visible';
