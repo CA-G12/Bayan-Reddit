@@ -11,6 +11,7 @@ fetch('/auth')
     if (res.authorized === 'true') {
       userBtn.textContent = 'Logout';
       userBtn.addEventListener('click', () => {
+        console.log('front logout');
         fetch('/logout').then(console.log());
       });
       userName.style.display = 'visible';
@@ -57,4 +58,4 @@ closeBtn.addEventListener('click', () => {
   postImg.value = '';
   popUpAddPost.style.visibility = 'hidden';
 });
-// userName.addEventListener('click', () => {
+
