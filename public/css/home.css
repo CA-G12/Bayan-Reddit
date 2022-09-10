@@ -210,7 +210,7 @@ nav.top-nav ul li a:hover{
     margin: 0;
     margin-top: 1rem;
     margin-bottom: 4px;
-} .container-wrapper .container .post .post-content-container .content , .comments .comment .post-content-container .content{
+} .container-wrapper .container  .post .post-content-container .content , .comments .comment .post-content-container .content{
     padding: 1rem;
 }.container-wrapper .container .post .post-content-container img{
     max-height: 600px;
@@ -227,7 +227,7 @@ nav.top-nav ul li a:hover{
     font-weight: bold;
     text-decoration: none;
 }
-.container-wrapper .container .post .message-wrapper{
+.container-wrapper .container .post .message-wrapper {
     width: 10%;
     display: flex;
     align-items: center;
@@ -237,17 +237,31 @@ nav.top-nav ul li a:hover{
     border-left: 1px solid rgba(0,0,0,.12);
     transition: .15s all ease-in-out;
 }
+.container-wrapper .container .post .message-wrapper a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #424242;
+    transition: .15s all ease-in-out;
+}
 .container-wrapper .container .post .message-wrapper:hover{
     background: var(--pale);
     color: var(--white);
     cursor: pointer;
 }
+
 .container-wrapper .container .post .message-wrapper ion-icon {
     font-size: 32px;
+    color: #424242;
 }
-.container-wrapper .container .post .message-wrapper .comment-count {
-    font-size: 12px;
+ .comment-count {
+    font-size: 1rem;
+    color: #424242;
 }
 .active{
     color: var(--pale);
+}
+a{
+    text-decoration: none;
 }

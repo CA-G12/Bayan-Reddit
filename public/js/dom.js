@@ -54,13 +54,14 @@ const renderPosts = (data) => {
     const postdetials = contentContainer.createAppendElement('p', { textContent: `${element.date.slice(0, 10)} | Posted by ` });
     const postUser = postdetials.createAppendElement('a', { href: '#', textContent: element.user_name });
     // comments div
+    
     const postComments = post.createAppendElement('div', { className: 'message-wrapper' });
+    // const commentsLink = postComments.createAppendElement('a',{ href: './html/commentsPost.html'})
     const commentIcon = postComments.createAppendElement('ion-icon', { name: 'chatbubbles-outline' });
-    const commentCount = postComments.createAppendElement('span', { name: 'comment-count', textContent: element.commentcount });
+    const commentCount = postComments.createAppendElement('span', { className: 'comment-count', textContent: element.commentcount });
     postComments.addEventListener('click', () => {
-      window.localStorage.setItem('postId', element.id);
-      window.location.href = '../html/commentsPost.html';
-      postId = element.id;
+fetch(`/postpage/${element.id}`)
+.then((res) =>console.log('llllll'))
       // console.log(postId);
       // window.location.href = `../html/commentsPost.html`;
       // console.log(postId);

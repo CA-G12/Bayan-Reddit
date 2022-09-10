@@ -91,8 +91,8 @@ const getcomments = (id) => {
   fetch(`/comments/${id}`).then((res) => res.json()).then((data) => renderComments(data));
 };
 
-getPost(postID);
-getcomments(postID);
+// getPost(postID);
+// getcomments(postID);
 // show and hide popup
 addComment.addEventListener('click', () => {
   popUp.style.visibility = 'visible';
