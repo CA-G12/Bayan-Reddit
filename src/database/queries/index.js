@@ -6,9 +6,10 @@ const { addComment } = require('./commets')
 
 const commentsByPostId = require('./commets/comments');
 const { postsByUserId } = require('./users');
-const profilePosts = require('./profile')
+const profilePosts = require('./profile');
+const addVote = require('./votes/addVote');
 
 
 module.exports = {
-  addUser, userById, userByName, userByEmail, allPosts, addPost, postById, addComment, commentsByPostId,postsByUserId, profilePosts
+  addUser, userById, userByName, userByEmail, allPosts, addPost, postById, addComment, commentsByPostId,postsByUserId, profilePosts, addVote
 };

@@ -248,3 +248,6 @@ nav.top-nav ul li a:hover{
 .container-wrapper .container .post .message-wrapper .comment-count {
     font-size: 12px;
 }
+.active{
+    color: var(--pale);
+}

@@ -18,6 +18,35 @@ const renderPosts = (data) => {
     const upIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-up-outline' });
     const voteCount = voteContainer.createAppendElement('span', { className: 'vote-amount', textContent: element.votes_counts });
     const downIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-down-outline' });
+    upIcon.addEventListener('click', () => {
+      if (!upIcon.classList.contains('active')) {
+        fetchUrl({
+          voteValue: 1,
+          postId: element.id,
+        }, 'post', '/vote')
+          .then(() => {
+            console.log(voteCount.textContent);
+            voteCount.textContent = +voteCount.textContent + 1;
+            upIcon.classList.add('active');
+            downIcon.classList.remove('active');
+          });
+      }
+    });
+    downIcon.addEventListener('click',() => {
+      if (!downIcon.classList.contains('active')) {
+        fetchUrl({
+          voteValue: -1,
+          postId: element.id,
+        }, 'post', '/vote')
+          .then(() => {
+            console.log(voteCount.textContent);
+            voteCount.textContent = +voteCount.textContent - 1;
+            downIcon.classList.add('active');
+            upIcon.classList.remove('active');
+          });
+      }
+    });
+    // content div
     const contentContainer = post.createAppendElement('div', { className: 'post-content-container' });
     const postTitle = contentContainer.createAppendElement('h2', { className: 'title', textContent: element.title });
     const postContent = contentContainer.createAppendElement('p', { className: 'content', textContent: element.content });
@@ -30,7 +59,7 @@ const renderPosts = (data) => {
     const commentCount = postComments.createAppendElement('span', { name: 'comment-count', textContent: element.commentcount });
     postComments.addEventListener('click', () => {
       window.localStorage.setItem('postId', element.id);
-      window.location.href = '../html/commentsPost.html'
+      window.location.href = '../html/commentsPost.html';
       postId = element.id;
       // console.log(postId);
       // window.location.href = `../html/commentsPost.html`;

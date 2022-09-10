@@ -26,7 +26,7 @@ CREATE TABLE comments(
 );
 CREATE TABLE votes(
     id SERIAL PRIMARY KEY,
-    vote_value INT NOT null,
+    vote_value INT,
     user_id INT,
     post_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id),
