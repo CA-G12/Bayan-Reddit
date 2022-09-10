@@ -19,10 +19,23 @@ fetch('/auth')
   });
 
 // profile page
+// const searchParams = new URLSearchParams(window.location.search);
+// const userId = searchParams.get('userId');
 
+// if (userId) {
+//   fetchUrl({ id: userId }, 'get', '/profile/id')
+//     .then((res) => res.json())
+//     .then((data) => {
+//       renderPosts(data);
+//     })
+//     .catch((err) => console.log(err));
+// }
+// else{
 fetch('/profile')
   .then((res) => res.json())
   .then((data) => {
     renderPosts(data);
   })
   .catch((err) => console.log(err));
+
+// }

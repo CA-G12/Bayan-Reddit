@@ -13,7 +13,6 @@ let postId;
 const renderPosts = (data) => {
   postsContainer.innerHTML = '';
   data.forEach((element) => {
-    console.log(element.post_id);
     const post = postsContainer.createAppendElement('div', { className: 'post' });
     const voteContainer = post.createAppendElement('div', { className: 'vote-container' });
     const upIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-up-outline' });
@@ -23,7 +22,7 @@ const renderPosts = (data) => {
       if (!upIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: 1,
-          postId: element.id,
+          postId: element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
@@ -37,7 +36,7 @@ const renderPosts = (data) => {
       if (!downIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: -1,
-          postId: element.id,
+          postId: element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
@@ -53,7 +52,7 @@ const renderPosts = (data) => {
     const postContent = contentContainer.createAppendElement('p', { className: 'content', textContent: element.content });
     const postImg = contentContainer.createAppendElement('img', { src: element.img });
     const postdetials = contentContainer.createAppendElement('p', { textContent: `${element.date.slice(0, 10)} | Posted by ` });
-    const postUser = postdetials.createAppendElement('a', { href: '#', textContent: element.user_name });
+    const postUser = postdetials.createAppendElement('a', { href: `./html/profile.html?userId=${element.id}`, textContent: element.user_name });
     // comments div
     const postComments = post.createAppendElement('div', { className: 'message-wrapper' });
     const commentsLink = postComments.createAppendElement('a', { href: `./html/commentsPost.html?postId=${element.post_id}` });
@@ -62,18 +61,5 @@ const renderPosts = (data) => {
     postComments.addEventListener('click', () => {
       window.location.href = `./html/commentsPost.html?postId=${element.post_id}`;
     });
-    //   postId = element.id;
-    // console.log(postId);
-    // window.location.href = `../html/commentsPost.html`;
-    // console.log(postId);
-    // getPost(element.id);
-    // getcomments(element.id);
-    // window.location.href = '../html/commentsPost.html';
-    // console.log('commets');
-
-    // fetch(`/postId/${element.id}`)
-    // .then((res) => res.json())
-    // .then((id) => window.location.href = `../html/commentsPost.html/?${element.id}`);
-    // });
   });
 };
