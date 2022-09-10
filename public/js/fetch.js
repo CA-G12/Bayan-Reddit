@@ -57,4 +57,3 @@ closeBtn.addEventListener('click', () => {
   postImg.value = '';
   popUpAddPost.style.visibility = 'hidden';
 });
-// userName.addEventListener('click', () => {

@@ -23,7 +23,7 @@ const renderPosts = (data) => {
       if (!upIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: 1,
-          postId: element.id,
+          postId: element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
@@ -37,7 +37,7 @@ const renderPosts = (data) => {
       if (!downIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: -1,
-          postId: element.id,
+          postId: element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
@@ -62,18 +62,5 @@ const renderPosts = (data) => {
     postComments.addEventListener('click', () => {
       window.location.href = `./html/commentsPost.html?postId=${element.post_id}`;
     });
-    //   postId = element.id;
-    // console.log(postId);
-    // window.location.href = `../html/commentsPost.html`;
-    // console.log(postId);
-    // getPost(element.id);
-    // getcomments(element.id);
-    // window.location.href = '../html/commentsPost.html';
-    // console.log('commets');
-
-    // fetch(`/postId/${element.id}`)
-    // .then((res) => res.json())
-    // .then((id) => window.location.href = `../html/commentsPost.html/?${element.id}`);
-    // });
   });
 };
