@@ -6,7 +6,7 @@ const closeBtn = document.querySelector('.close');
 const commentContent = document.querySelector('.comment-content');
 const popUp = document.querySelector('.po-up-continer1');
 
-// render book
+// render posts
 const PostContainer = document.querySelector('.posts');
 const renderPost = (data) => {
   PostContainer.innerHTML = '';
@@ -20,7 +20,7 @@ const renderPost = (data) => {
       if (!upIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: 1,
-          postId: element.id,
+          postId: element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
@@ -34,7 +34,7 @@ const renderPost = (data) => {
       if (!downIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: -1,
-          postId: element.id,
+          postId:  element.post_id,
         }, 'post', '/vote')
           .then(() => {
             console.log(voteCount.textContent);
