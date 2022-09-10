@@ -1,4 +1,4 @@
-# Bayan-Redddit
+# Bayan-Reddit
 
 ## live link:
 
