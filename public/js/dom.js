@@ -13,6 +13,7 @@ let postId;
 const renderPosts = (data) => {
   postsContainer.innerHTML = '';
   data.forEach((element) => {
+    console.log(element.post_id);
     const post = postsContainer.createAppendElement('div', { className: 'post' });
     const voteContainer = post.createAppendElement('div', { className: 'vote-container' });
     const upIcon = voteContainer.createAppendElement('ion-icon', { name: 'chevron-up-outline' });
@@ -32,7 +33,7 @@ const renderPosts = (data) => {
           });
       }
     });
-    downIcon.addEventListener('click',() => {
+    downIcon.addEventListener('click', () => {
       if (!downIcon.classList.contains('active')) {
         fetchUrl({
           voteValue: -1,
@@ -55,23 +56,24 @@ const renderPosts = (data) => {
     const postUser = postdetials.createAppendElement('a', { href: '#', textContent: element.user_name });
     // comments div
     const postComments = post.createAppendElement('div', { className: 'message-wrapper' });
-    const commentIcon = postComments.createAppendElement('ion-icon', { name: 'chatbubbles-outline' });
-    const commentCount = postComments.createAppendElement('span', { name: 'comment-count', textContent: element.commentcount });
+    const commentsLink = postComments.createAppendElement('a', { href: `./html/commentsPost.html?postId=${element.post_id}` });
+    const commentIcon = commentsLink.createAppendElement('ion-icon', { name: 'chatbubbles-outline' });
+    const commentCount = commentsLink.createAppendElement('span', { name: 'comment-count', textContent: element.commentcount });
     postComments.addEventListener('click', () => {
-      window.localStorage.setItem('postId', element.id);
-      window.location.href = '../html/commentsPost.html';
-      postId = element.id;
-      // console.log(postId);
-      // window.location.href = `../html/commentsPost.html`;
-      // console.log(postId);
-      // getPost(element.id);
-      // getcomments(element.id);
-      // window.location.href = '../html/commentsPost.html';
-      // console.log('commets');
-
-      // fetch(`/postId/${element.id}`)
-      // .then((res) => res.json())
-      // .then((id) => window.location.href = `../html/commentsPost.html/?${element.id}`);
+      window.location.href = `./html/commentsPost.html?postId=${element.post_id}`;
     });
+    //   postId = element.id;
+    // console.log(postId);
+    // window.location.href = `../html/commentsPost.html`;
+    // console.log(postId);
+    // getPost(element.id);
+    // getcomments(element.id);
+    // window.location.href = '../html/commentsPost.html';
+    // console.log('commets');
+
+    // fetch(`/postId/${element.id}`)
+    // .then((res) => res.json())
+    // .then((id) => window.location.href = `../html/commentsPost.html/?${element.id}`);
+    // });
   });
 };
