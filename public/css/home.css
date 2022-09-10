@@ -237,6 +237,14 @@ nav.top-nav ul li a:hover{
     border-left: 1px solid rgba(0,0,0,.12);
     transition: .15s all ease-in-out;
 }
+.container-wrapper .container .post .message-wrapper a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #424242;
+    transition: .15s all ease-in-out;
+}
 .container-wrapper .container .post .message-wrapper:hover{
     background: var(--pale);
     color: var(--white);
@@ -244,10 +252,14 @@ nav.top-nav ul li a:hover{
 }
 .container-wrapper .container .post .message-wrapper ion-icon {
     font-size: 32px;
+    color: #424242;
 }
-.container-wrapper .container .post .message-wrapper .comment-count {
-    font-size: 12px;
-}
+.comment-count {
+    font-size: 1rem;
+    color: #424242;}
 .active{
     color: var(--pale);
+}
+a{
+    text-decoration: none;
 }

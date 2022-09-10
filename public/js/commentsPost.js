@@ -82,7 +82,10 @@ fetch('/auth')
       addComment.style.display = 'none';
     }
   });
-const postID = localStorage.getItem('postId');
+  const searchParams = new URLSearchParams(window.location.search);
+  const postID = searchParams.get('postId');
+
+// const postID = localStorage.getItem('postId');
 console.log(postID);
 const getPost = (id) => {
   fetch(`/post/${id}`).then((res) => res.json()).then((data) => renderPost(data));
